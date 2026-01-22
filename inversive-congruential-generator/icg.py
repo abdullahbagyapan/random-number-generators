@@ -5,7 +5,10 @@ class InversiveCongruentialGenerator:
     def __init__(self, seed = 1, multiplier = 16807, increment = 1, modulus = 2**31 - 1):
 
         if not isprime(modulus):
-            raise ValueError("modulus is not prime number")
+            raise ValueError("modulus must be prime")
+
+        if (self.multiplier == 0):
+            raise ValueError("multiplier must be nonzero modulo p")
 
         self.seed = seed
         self.multiplier = multiplier
